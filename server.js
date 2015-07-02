@@ -59,6 +59,11 @@ userSchema.methods.comparePassword = function(candidatePassword, cb){
   });
 };
 
+var User = mongoose.model('User', userSchema);
+var Show = mongoose.model('Show', showSchema);
+
+mongoose.connect('mongodb://localhost:27017/trackr');
+
 app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(bodyParser.json());
